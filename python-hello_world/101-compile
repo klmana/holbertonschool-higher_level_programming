@@ -1,0 +1,3 @@
+#!/bin/bash
+python3 -m compileall -b $PYFILE
+chmod +x $PYFILE'c'
