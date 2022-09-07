@@ -5,4 +5,4 @@ for number_i in range(10):
             print('{:d}{:d}'.format(number_i, number_j), end='')
             if number_i < 8:
                 print(', ', end='')
-    print()
+print()
