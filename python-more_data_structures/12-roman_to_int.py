@@ -6,7 +6,8 @@ def roman_to_int(roman_string):
     sum = 0
     for number in range(len(roman_string)):
         value = nums[roman_string[number]]
-        if number + 1 < len(roman_string) and nums[roman_string[number + 1]] > value:
+        if number + 1 < len(roman_string)and nums[roman_string[number + 1]
+        ] > value:
             sum -= value
         else:
             sum += value
