@@ -4,9 +4,9 @@ def roman_to_int(roman_string):
         return 0
     nums = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     sum = 0
-    for numb in range(len(roman_string)):
-        value = nums[roman_string[numb]]
-        if numb + 1 < len(roman_string)and nums[roman_string[numb + 1]] > value:
+    for num in range(len(roman_string)):
+        value = nums[roman_string[num]]
+        if num + 1 < len(roman_string)and nums[roman_string[num + 1]] > value:
             sum -= value
         else:
             sum += value
