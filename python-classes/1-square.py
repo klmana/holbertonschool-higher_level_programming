@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+""" class for square. """
+
+
 class Square:
-    """An empty square class"""
+    """An square class."""
     __size = None
 
     def __init__(self, size):
-        """Initialize class"""
+        """Initialize a new class Square"""
         self.__size = size
