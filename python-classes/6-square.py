@@ -15,9 +15,9 @@ class Square:
     .Public instance method: def my_print(self)
     .if size is equal to 0, print an empty line """
 
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Initialize the class square."""
-        self.__size = size
+        self.size = size
         self.position = position
 
     @property
@@ -58,6 +58,7 @@ class Square:
         """That prints in stdout the square with the character #"""
         if self.__size == 0:
             print()
+            return
 
         for indent_Top in range(0, self.__position[1]):
             print()
