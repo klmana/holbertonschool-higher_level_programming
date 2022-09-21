@@ -1,37 +1,37 @@
 The "0-add_integer" module
-    ==========================
+==========================
 
 Using "add_integer"
 -------------------
 
 Import file:
-        >>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer = __import__('0-add_integer').add_integer
 
 Test with two numbers:
-     >>> add_integer(3, 4)
-     7
+>>> add_integer(3, 4)
+7
 
 Test with two negative numbers:
-     >>> add_integer(-25, -2)
-     -27
+>>> add_integer(-25, -2)
+-27
 
 Test with only one argument:
-     >>> add_integer(2)
-     100
+>>> add_integer(2)
+100
 
 Test with a float and negative number:
-     >>> add_integer(100.3, -2)
-     98
+>>> add_integer(100.3, -2)
+98
 
 Test with two floats:
-     >>> add_integer(22.2, 2.22)
-     24
+>>> add_integer(22.2, 2.22)
+24
 
-     >>> add_integer(0)
-     98
+>>> add_integer(0)
+98
 
-     >>> add_integer()
-Traceback(most recent call last):
+>>> add_integer()
+Traceback (most recent call last):
 TypeError: add_integer() missing 1 required positional argument: 'a'
 
 >>> add_integer("School", "Holberton")
