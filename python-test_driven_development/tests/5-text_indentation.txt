@@ -104,15 +104,14 @@ Checking for ending in non-special char:
 
 test for multiple spaces:
 	 >>> text_indentation("   Hello.  How are you?   ")
-	    Hello.
+	 Hello.
 	 <BLANKLINE>
-	  How are you?
-	 <BLANKLINE>
+	 How are you?
 	 <BLANKLINE>
 
 test for standalone special chars:
 	 >>> text_indentation(" . ? : ")
-	  .
+	 .
 	 <BLANKLINE>
 	 ?
 	 <BLANKLINE>
@@ -142,4 +141,5 @@ test for newline in middle:
 test for newline at end:
 	 >>> text_indentation("Hello, how are you?\n")
 	 Hello, how are you?
+	 <BLANKLINE>
 	 <BLANKLINE>
