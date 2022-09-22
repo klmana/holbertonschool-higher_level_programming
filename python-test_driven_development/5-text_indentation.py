@@ -14,16 +14,17 @@ def text_indentation(text):
     if type(text) != str:
         raise TypeError('text must be a string')
 
-    delimiter = '.?:'
-    index = 0
-    while index < len(text) and text[index] == ' ':
-        index += 1
-    while index < len(text):
-        print(text[index], end='')
-        if text[index] == '\n' or text[index] in delimiter:
-            print('\n')
-        index += 1
-        while index < len(text) and text[index] == ' ':
-            index += 1
-        continue
-    index += 1
+    flag = 0
+    for a in text:
+        if flag == 0:
+            if a == ' ':
+                continue
+            else:
+                flag = 1
+        if flag == 1:
+            if a == '?' or a == '.' or a == ':':
+                print(a)
+                print()
+                flag = 0
+            else:
+                print(a, end="")
