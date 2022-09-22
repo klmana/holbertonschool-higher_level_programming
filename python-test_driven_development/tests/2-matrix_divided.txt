@@ -1,0 +1,43 @@
+The "2-matrix_divided" module
+==========================
+
+Using "matrix_divided"
+-------------------
+
+Import the function:
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Get start to test it:
+
+Test for division by zero:
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+Test for  div as float:
+>>> matrix_divided([[1, 2, 3], [4.45, 5.77, 6]], 3)
+[[0.33, 0.67, 1.0], [1.48, 1.92, 2.0]]
+
+Test for div as bool:
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], "Holberton")
+Traceback (most recent call last):
+TypeError: div must be a number
+
+Test for mix of ints, floats, and tuple:
+>>> matrix_divided([['j', 'k', 'l', 'm'], [4, 5, 6]], 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test for more argument:
+>>> matrix_divided([[1, 3, 2, 2, 10], [4, 5, 6]], 2)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+Test for 1 argument:
+>>> matrix_divided([[], [4, 5, 6]], 2)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+Test for negative numbers:
+>>> matrix_divided([[3, 9], [12, 15]], -3)
+[[-1.0, -3.0], [-4.0, -5.0]]
