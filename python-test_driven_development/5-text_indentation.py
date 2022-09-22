@@ -17,8 +17,10 @@ def text_indentation(text):
         raise TypeError('text must be a string')
     while index < len(text):
         print(text[index], end='')
-        if text[index] in delimiter:
+        if text[index] == "\n" or text[index] in delimiter:
             print("\n")
-            index += 2
-        else:
+        index += 1
+        while index < len(text) and text[index] == ' ':
             index += 1
+        continue
+    index += 1
