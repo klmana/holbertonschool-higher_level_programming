@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Devine for  lockedClass."""
+
+
 class LockedClass:
     """
     Locked class that prevents user dynamically create the instance
