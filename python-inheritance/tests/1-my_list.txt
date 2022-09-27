@@ -65,3 +65,9 @@ Checking for all negative numbers:
 	  [-5, -4, -3, -2, -1]
 	  >>> print(list)
           [-1, -4, -2, -3, -5]
+	  
+Checking for too many arguments:
+	  >>> l.print_sorted(1)
+	  Traceback (most recent call last):
+	  ...
+	  TypeError: print_sorted() takes 1 positional argument but 2 were given
