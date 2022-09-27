@@ -22,34 +22,34 @@ Checking that appendng works:
 	  >>> list.append(1)
 	  >>> list.append(4)
 	  >>> list.append(2)
-	  >>> list.append(5)
 	  >>> list.append(3)
+	  >>> list.append(5)
 	  >>> print(list)
-	  [1, 4, 2, 5, 3]
+	  [1, 4, 2, 3, 5]
 
 Checking for list already in correct order:
 	  >>> list.print_sorted()
-	  [1, 4, 2, 5, 3]
+	  [1, 2, 3, 4, 5]
 
 Checking for reversed order list:
 	  >>> list = MyList()
 	  >>> list.append(1)
 	  >>> list.append(4)
 	  >>> list.append(2)
-	  >>> list.append(5)
 	  >>> list.append(3)
+	  >>> list.append(5)
 	  >>> print(list)
-	  [1, 4, 2, 5, 3]
+	  [1, 4, 2, 3, 5]
 	  >>> list.print_sorted()
-	  [3, 5, 2, 4, 1]
+	  [5, 3, 2, 4, 1]
 	  >>> print(list)
-	  [1, 4, 2, 5, 3]
+	  [1, 4, 2, 3, 5]
 
 Checking for one negative number:
 	  >>> list.append(6)
 	  >>> list.append(-7)
 	  >>> print(list)
-	  [1, 4, 2, 5, 3, 6, -7]
+	  [1, 4, 2, 3, 5, 6, -7]
 	  >>> list.print_sorted()
 	  [1, 2, 3, 4, 5, 6, -7]
 	  >>> print(list)
