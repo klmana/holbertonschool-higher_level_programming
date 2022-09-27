@@ -41,7 +41,7 @@ Checking for reversed order list:
 	  >>> print(list)
 	  [1, 4, 2, 3, 5]
 	  >>> list.print_sorted()
-	  [5, 3, 2, 4, 1]
+	  [1, 2, 3, 4, 5]
 	  >>> print(list)
 	  [1, 4, 2, 3, 5]
 
