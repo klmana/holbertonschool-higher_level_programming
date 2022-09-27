@@ -61,8 +61,7 @@ Checking for all negative numbers:
 	  >>> list.append(-5)
 	  >>> print(list)
 	  [-1, -4, -2, -3, -5]
-	  >>> l.print_sorted()
+	  >>> list.print_sorted()
 	  [-5, -4, -3, -2, -1]
 	  >>> print(list)
           [-1, -4, -2, -3, -5]
-	  
