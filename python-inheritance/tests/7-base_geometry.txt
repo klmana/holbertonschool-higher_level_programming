@@ -48,13 +48,6 @@ True
 >>> len(mod2) > 1
 True
 
-Checking for area failure:
->>> bg = BG()
->>> bg.area()
-Traceback (most recent call last):
-...
-Exception: area() is not implemented
-
 Checking too many arguments for area:
 >>> bg.area(1)
 Traceback (most recent call last):
@@ -78,12 +71,12 @@ TypeError: integer_validator() missing 1 required positional argument: 'value'
 >>> bg.integer_validator("age", None)
 Traceback (most recent call last):
 ...
-TypeError: year must be an integer
+TypeError: age must be an integer
 
 >>> bg.integer_validator("age", (4,))
 Traceback (most recent call last):
 ...
-TypeError: year must be an integer
+TypeError: age must be an integer
 
 >>> bg.integer_validator("year", [2])
 Traceback (most recent call last):
@@ -93,4 +86,4 @@ TypeError: year must be an integer
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
-ValueError: kms must be greater than 0
+ValueError: age must be greater than 0
