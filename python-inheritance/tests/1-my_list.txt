@@ -1,0 +1,68 @@
+The ``1-my_list`` module
+=============================
+
+Using ``MyList``
+---------------------
+
+
+
+Checking that MyList inherits from list:
+	  >>> issubclass(MyList, list)
+	  True
+
+Checking for empty list:
+	  >>> list = MyList()
+	  >>> list.print_sorted()
+	  []
+
+Checking that appendng works:
+	  >>> list.append(1)
+	  >>> list.append(4)
+	  >>> list.append(2)
+	  >>> list.append(5)
+	  >>> list.append(3)
+	  >>> print(list)
+	  [1, 4, 2, 5, 3]
+
+Checking for list already in correct order:
+	  >>> list.print_sorted()
+	  [1, 4, 2, 5, 3]
+
+Checking for reversed order list:
+	  >>> list = MyList()
+	  >>> list.append(1)
+	  >>> list.append(4)
+	  >>> list.append(2)
+	  >>> list.append(5)
+	  >>> list.append(3)
+	  >>> print(list)
+	  [1, 4, 2, 5, 3]
+	  >>> list.print_sorted()
+	  [3, 5, 2, 4, 1]
+	  >>> print(list)
+	  [1, 4, 2, 5, 3]
+
+Checking for one negative number:
+	  >>> list.append(6)
+	  >>> list.append(-7)
+	  >>> print(list)
+	  [1, 4, 2, 5, 3, 6, -7]
+	  >>> list.print_sorted()
+	  [1, 2, 3, 4, 5, 6, -7]
+	  >>> print(list)
+	  [1, 2, 3, 4, 5, 6, -7]
+
+Checking for all negative numbers:
+	  >>> list = MyList()
+	  >>> list.append(-1)
+	  >>> list.append(-4)
+	  >>> list.append(-2)
+	  >>> list.append(-3)
+	  >>> list.append(-5)
+	  >>> print(list)
+	  [-1, -4, -2, -3, -5]
+	  >>> l.print_sorted()
+	  [-5, -4, -3, -2, -1]
+	  >>> print(list)
+          [-1, -4, -2, -3, -5]
+	  
