@@ -29,8 +29,7 @@ class Student:
           Return: The dictionary representation of
           a Student instance (same as 8-class_to_json.py):
         """
-        if not attrs:
-            return self.__dict__
-
-        return ({key: value for key, value in self.__dict__.items()
-                 if key in attrs})
+        if (type(attrs) == list and
+                all(type(ele) == str for ele in attrs)):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        return self.__dict__
