@@ -105,6 +105,16 @@ class Rectangle(Base):
         """
         return self.__width * self.__height
 
+    def display(self):
+        """
+          That prints in stdout the Rectangle instance with
+          the character (#) - and no need to handle x and y
+        """
+        for row in range(self.height):
+            for column in range(self.width):
+                print('#', end='')
+            print()
+
     def __str__(self):
         """
           print method and return formated string
