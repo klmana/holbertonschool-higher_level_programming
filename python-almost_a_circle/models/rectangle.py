@@ -110,10 +110,10 @@ class Rectangle(Base):
           That prints in stdout the Rectangle instance with
           the character (#) - and no need to handle x and y
         """
-        for row in range(self.height):
-            for column in range(self.width):
-                print('#', end='')
+        for row in range(self.y):
             print()
+        for row in range(self.height):
+            print('{}{}'.format(' ' * self.x, '#' * self.width))
 
     def __str__(self):
         """
