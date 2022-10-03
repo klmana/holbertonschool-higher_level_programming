@@ -28,7 +28,9 @@ class Rectangle(Base):
         self.y = y
 
     def validator(self, name, value):
-        """Verify conditions"""
+        """
+          Verify and validate conditions
+        """
         if type(value) is not int:
             raise TypeError("{:s} must be an integer".format(name))
         elif name in ["width", "height"] and value <= 0:
@@ -95,3 +97,17 @@ class Rectangle(Base):
         """
         self.validator("y", value)
         self.__y = value
+
+    def area(self):
+        """
+          Defines area that returns the area
+          value of the Rectangle instance.
+        """
+        return self.__width * self.__height
+
+    def __str__(self):
+        """
+          print method and return formated string
+        """
+        return "[{}] {}/{}".format(__class__.__name__,
+                                   self.__width, self.__height)
