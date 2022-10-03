@@ -119,5 +119,30 @@ class Rectangle(Base):
         """
           print method and return formated string
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+        return '[Rectangle] ({}) {}/{} - {}/{}'.format(
             self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        """
+           Method def update(self, *args):
+           that assigns an argument to each attribute:
+           of the Rectangle by adding the public method
+         """
+
+        length = len(args)
+        if length == 0:
+            return
+        for index in range(length):
+            if index == 0:
+                if args[index] is None:
+                    self.__init__(self.width, self.height, self.x, self.y)
+                else:
+                    self.id = args[index]
+            elif index == 1:
+                self.width = args[index]
+            elif index == 2:
+                self.height = args[index]
+            elif index == 3:
+                self.x = args[index]
+            elif index == 4:
+                self.y = args[index]
