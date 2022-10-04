@@ -122,11 +122,11 @@ class Rectangle(Base):
         return '[Rectangle] ({}) {}/{} - {}/{}'.format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-           Method def update(self, *args):
-           that assigns an argument to each attribute:
-           of the Rectangle by adding the public method
+           Update the class Rectangle by updating the public method
+           def update(self, *args): by changing the prototype to update
+           (self, *args, **kwargs)assigns a key/value argument to attributes:
          """
 
         length = len(args)
@@ -146,3 +146,20 @@ class Rectangle(Base):
                 self.x = args[index]
             elif index == 4:
                 self.y = args[index]
+
+            elif kwargs and len(kwargs) != 0:
+                for key, value in kwargs.items():
+                    if key == 'id':
+                        if value is None:
+                            self.__init__(self.width,
+                                          self.height, self.x, self.y)
+                        else:
+                            self.id = value
+                    elif key == 'width':
+                        self.width = value
+                    elif key == 'height':
+                        self.height = value
+                    elif key == 'x':
+                        self.x = value
+                    elif key == 'y':
+                        self.y = value
