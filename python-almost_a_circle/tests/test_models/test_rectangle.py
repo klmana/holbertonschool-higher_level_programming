@@ -5,8 +5,13 @@ Unit test for the Rectangle class
 '''
 
 import unittest
+import json
+import sys
+import os
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
+
 
 class TestRectangle(unittest.TestCase):
     def test_rectangle_docs(self):
@@ -41,7 +46,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             my_obj = Rectangle(2, 12, 1, None)
 
-
     def test_good_value(self):
         with self.assertRaises(ValueError):
             my_obj = Rectangle(2, -2)
@@ -55,5 +59,5 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             my_obj = Rectangle(2, 0, 0, -1, 24)
 
-if __name__ == "__main__":
-    unittest.main()
+    if __name__ == "__main__":
+        unittest.main()

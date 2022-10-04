@@ -3,8 +3,15 @@
 Unit test for Base class
 '''
 
-import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
+import unittest
+import sys
+import json
+import os
+from unittest.mock import patch
+from io import StringIO
 
 
 class TestBase(unittest.TestCase):
@@ -26,6 +33,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(my_obj.id, 1)
         self.assertEqual(my_obj_2.id, 24)
         self.assertEqual(my_obj_3.id, 2)
+
 
 if __name__ == "__main__":
     unittest.main()
