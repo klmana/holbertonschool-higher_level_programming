@@ -128,38 +128,19 @@ class Rectangle(Base):
            def update(self, *args): by changing the prototype to update
            (self, *args, **kwargs)assigns a key/value argument to attributes:
          """
+        if args:
+            list_args = ['id', 'width', 'height', 'x', 'y']
+            index = 0
+            for arg in args:
+                setattr(self, list_args[index], arg)
+                index += 1
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
-        length = len(args)
-        if length == 0:
-            return
-        for index in range(length):
-            if index == 0:
-                if args[index] is None:
-                    self.__init__(self.width, self.height, self.x, self.y)
-                else:
-                    self.id = args[index]
-            elif index == 1:
-                self.width = args[index]
-            elif index == 2:
-                self.height = args[index]
-            elif index == 3:
-                self.x = args[index]
-            elif index == 4:
-                self.y = args[index]
-
-            elif kwargs and len(kwargs) != 0:
-                for key, value in kwargs.items():
-                    if key == 'id':
-                        if value is None:
-                            self.__init__(self.width,
-                                          self.height, self.x, self.y)
-                        else:
-                            self.id = value
-                    elif key == 'width':
-                        self.width = value
-                    elif key == 'height':
-                        self.height = value
-                    elif key == 'x':
-                        self.x = value
-                    elif key == 'y':
-                        self.y = value
+    def to_dictionary(self):
+        """
+          Return dictionary representation of Rectangle
+        """
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}
