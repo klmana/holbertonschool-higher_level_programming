@@ -3,24 +3,49 @@
 
 
 import unittest
-import pep8
-import inspect
+from unittest import mock
 import io
-import json
-import os
-from contextlib import redirect_stdout
-from models import square
-from models.base import Base
-Square = square.Square
+from models.square import Square
 
 
-class TestSquareDocs(unittest.TestCase):
-    """
-      Test the Square class style and documentation
-    """
-    @classmethod
-    def setUpClass(cls):
-        """
-          Set up for the doc tests
-        """
-        cls.sq_funcs = inspect.getmembers(Square, inspect.isfunction)
+class TestSquare(unittest.TestCase):
+    '''
+    Testing Square
+    '''
+
+    def test_instance(self):
+        '''
+        test input size correct standard
+        '''
+
+        s = Square(6)
+        self.assertEqual(s.width, 6)
+        self.assertEqual(s.height, 6)
+
+        with self.assertRaises(TypeError):
+            Square(5, "1")
+
+        with self.assertRaises(TypeError):
+            Square()
+
+        with self.assertRaises(TypeError):
+            Square("1")
+
+        with self.assertRaises(ValueError):
+            Square(-5, 3, 4)
+
+        with self.assertRaises(TypeError):
+            Square(1, 2, "3")
+
+        with self.assertRaises(ValueError):
+            Square(1, -2)
+
+        with self.assertRaises(ValueError):
+            Square(1, 2, -3)
+
+        with self.assertRaises(ValueError):
+            Square(0)
+
+
+if __name__ == "__main__":
+    unittest.main()
