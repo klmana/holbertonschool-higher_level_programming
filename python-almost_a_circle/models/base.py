@@ -55,3 +55,15 @@ class Base:
             js_string = '[]'
         with open(cls.__name__ + '.json', 'w') as f:
             f.write(js_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+          That returns the list of the JSON string representation json_string:
+          Args:
+          Json_string: String representing a list of dictionaries
+          Return: The list represented by json_string
+        """
+        if json_string:
+            return json.loads(json_string)
+        return []
