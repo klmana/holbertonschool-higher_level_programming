@@ -48,3 +48,24 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+          Update the class Square by adding the public method
+          def update(self, *args, **kwargs) that assigns attributes:
+          Args  :
+          Args  : The pointer to the arguments or we can call
+          the list of arguments - no-keyworded arguments
+          Kwargs: The double pointer to the key word arguments
+        """
+
+        if args:
+            index = 0
+            list_args = ['id', 'size', 'x', 'y']
+            for arg in args:
+                setattr(self, list_args[index], arg)
+                index += 1
+            return
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
