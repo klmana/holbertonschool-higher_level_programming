@@ -73,6 +73,29 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s3.y, 3)
         self.assertEqual(s3.id, 4)
 
+    def test_str_for_square(self):
+        '''
+          Test __str__
+        '''
+        s3 = Square(1, 2, 3, 4)
+        self.assertEqual(str(s3), "[Square] (4) 2/3 - 1")
+
+    def test_to_dictionary(self):
+        '''
+            Test method to_dictionary
+        '''
+        s1 = Square(1, 2, 3)
+        s1_dictionary = s1.to_dictionary()
+        s_dictionary = {'x': 2, 'y': 3, 'id': 3, 'size': 1}
+        self.assertEqual(len(s1_dictionary), len(s_dictionary))
+        self.assertEqual(type(s1_dictionary), dict)
+        s4 = Square(1, 1)
+        s4.update(**s1_dictionary)
+        s4_dictionary = s4.to_dictionary()
+        self.assertEqual(len(s1_dictionary), len(s4_dictionary))
+        self.assertEqual(type(s4_dictionary), dict)
+        self.assertFalse(s1 == s4)
+
 
 if __name__ == "__main__":
     unittest.main()
