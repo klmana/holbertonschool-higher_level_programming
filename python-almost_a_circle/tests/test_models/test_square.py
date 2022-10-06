@@ -3,6 +3,7 @@
 
 
 import unittest
+import os
 from unittest import mock
 import io
 from models.square import Square
@@ -117,6 +118,27 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.size, 1)
         self.assertEqual(s1.x, 2)
         self.assertEqual(s1.y, 3)
+
+    def test_save_to_file(self):
+        '''
+          Test normal load from file
+        '''
+        s1 = Square(7, 3)
+        s2 = Square(8)
+        squares_input = [s1, s2]
+        Square.save_to_file(squares_input)
+        squares_output = Square.load_from_file()
+        for x in zip(squares_input, squares_output):
+            self.assertEqual(str(x[0]), str(x[1]))
+
+    def test_load_from_file(self):
+        '''
+          Test normal load from file
+        '''
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
+        squares_output = Square.load_from_file()
+        self.assertEqual(squares_output, [])
 
 
 if __name__ == "__main__":
