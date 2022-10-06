@@ -47,22 +47,16 @@ class TestSquare(unittest.TestCase):
             Square(0, 2)
 
         with self.assertRaises(ValueError):
-            Square(1, 0)
-
-        with self.assertRaises(ValueError):
             Square(1, 2, -3)
-
-        with self.assertRaises(TypeError):
-            Square(1, 2)
-
-        with self.assertRaises(TypeError):
-            Square(1, 2, 3)
-
-        with self.assertRaises(TypeError):
-            Square(1, 2, 3, 4)
 
         with self.assertRaises(ValueError):
             Square(0)
+
+        s1 = Square(1, 2, 3)
+        self.assertEqual(s1.width, 1)
+        self.assertEqual(s1.height, 1)
+        self.assertEqual(s1.x, 2)
+        self.assertEqual(s1.y, 3)
 
 
 if __name__ == "__main__":
