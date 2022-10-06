@@ -153,6 +153,33 @@ class TestSquare(unittest.TestCase):
             self.assertEqual(json.loads(file.read()), json.loads('[]'))
         os.remove("Square.json")
 
+    def test_squ_save_to_file(self):
+        """
+          Test save to file method for Square
+        """
+        s1 = Square(5)
+        filename = 'Square.json'
+        Square.save_to_file(None)
+        with open(filename, 'r', encoding='utf-8') as f:
+            result = f.read()
+            self.assertEqual(result, '[]')
+        if os.path.exists(filename):
+            os.remove(filename)
+            Square.save_to_file([])
+        with open(filename, 'r', encoding='utf-8') as f:
+            result = f.read()
+            self.assertEqual(result, '[]')
+        if os.path.exists(filename):
+            os.remove(filename)
+        Square.save_to_file([s1])
+        self.assertTrue(os.path.exists(filename))
+        with open(filename, 'r', encoding='utf-8') as f:
+            result = f.read()
+            result = json.loads(result)
+            self.assertEqual(result, [s1.to_dictionary()])
+        if os.path.exists(filename):
+            os.remove(filename)
+
 
 if __name__ == "__main__":
     unittest.main()
