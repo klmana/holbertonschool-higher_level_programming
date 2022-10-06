@@ -22,6 +22,7 @@ class TestBase(unittest.TestCase):
         """
           Test of Base for correctly initializing an id
         """
+        __nb_objects = 0
         b = Base(5)
         self.assertEqual(b.id, 5)
 
@@ -44,15 +45,15 @@ class TestBase(unittest.TestCase):
             json_dic, '[{"id": 1, "x": 2, "y": 3, "width": 4, "height": 5}]')
         json_d_1 = Base.to_json_string(None)
         self.assertEqual(json_d_1, '[]')
-        error = ('to_json_string() missing 1 required positional argument: ' +
-                 "'list_dictionaries'")
+        ero = ('to_json_string() missing 1 required positional argument: ' +
+               "'list_dictionaries'")
         with self.assertRaises(TypeError) as index:
             Base.to_json_string()
-        self.assertEqual(error, str(index.exception))
-        error = 'to_json_string() takes 1 positional argument but 2 were given'
+        self.assertEqual(ero, str(index.exception))
+        ero = 'to_json_string() takes 1 positional argument but 2 were given'
         with self.assertRaises(TypeError) as index:
             Base.to_json_string([{1, 2}], [{3, 4}])
-        self.assertEqual(error, str(index.exception))
+        self.assertEqual(ero, str(index.exception))
 
     def test_from_json_string(self):
         """
@@ -67,16 +68,15 @@ class TestBase(unittest.TestCase):
             json_str, [{'id': 1, 'x': 2, 'y': 3, 'width': 4, 'height': 5}])
         json_string_1 = Base.from_json_string(None)
         self.assertEqual(json_string_1, [])
-        error = ("from_json_string() missing 1 required positional argument:
-                 " + "'json_string'")
+        ero = ("from_json_string() missing 1 required positional argument:"
+               + "'json_string'")
         with self.assertRaises(TypeError) as index:
             Base.from_json_string()
-        self.assertEqual(error, str(index.exception))
-        error = 'from_json_string()
-        takes 1 positional argument but 2 were given'
+        self.assertEqual(ero, str(index.exception))
+        ero = 'from_json_string() takes 1 positional argument but 2 were given'
         with self.assertRaises(TypeError) as index:
             Base.from_json_string('[1]', '[2]')
-        self.assertEqual(error, str(index.exception))
+        self.assertEqual(ero, str(index.exception))
 
 
 if __name__ == "__main__":
