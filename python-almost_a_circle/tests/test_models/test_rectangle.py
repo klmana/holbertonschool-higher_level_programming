@@ -127,6 +127,12 @@ class TestRectangle(unittest.TestCase):
             my_obj = Rectangle(-1, 2)
 
         with self.assertRaises(ValueError):
+            my_obj = Rectangle(0, 2)
+
+        with self.assertRaises(ValueError):
+            my_obj = Rectangle(1, 0)
+
+        with self.assertRaises(ValueError):
             my_obj = Rectangle(2, -2)
 
         with self.assertRaises(ValueError):
