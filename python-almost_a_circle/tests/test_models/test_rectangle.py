@@ -124,6 +124,9 @@ class TestRectangle(unittest.TestCase):
           test integer validator.
         """
         with self.assertRaises(ValueError):
+            my_obj = Rectangle(-1, 2)
+
+        with self.assertRaises(ValueError):
             my_obj = Rectangle(2, -2)
 
         with self.assertRaises(ValueError):
