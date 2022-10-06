@@ -96,6 +96,28 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(type(s4_dictionary), dict)
         self.assertFalse(s1 == s4)
 
+    def test_created(self):
+        '''
+          Test of Square.create(**{ 'id': 89 }) in Square exists
+        '''
+        s1 = Square.create(**{'id': 89})
+        self.assertEqual(s1.id, 89)
+
+        s1 = Square.create(**{'id': 89, 'size': 1})
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+
+        s1 = Square.create(**{'id': 89, 'size': 1, 'x': 2})
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        self.assertEqual(s1.x, 2)
+
+        s1 = Square.create(**{'id': 89, 'size': 1, 'x': 2, 'y': 3})
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        self.assertEqual(s1.x, 2)
+        self.assertEqual(s1.y, 3)
+
 
 if __name__ == "__main__":
     unittest.main()
