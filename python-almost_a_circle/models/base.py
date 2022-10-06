@@ -99,21 +99,3 @@ class Base:
             return [cls.create(**for_item) for for_item in for_list]
         except FileNotFoundError:
             return []
-
-    @classmethod
-    def save_to_file_csv(cls, list_objs):
-        """
-          That serializes and deserializes in CSV format:
-          Args:
-          List_objs : The list of the instances
-        """
-        filename = cls.__name__ + ".csv"
-        with open(filename, 'w', newline='') as csv_file:
-            csv_writer = csv.writer(csv_file)
-            if cls.__name__ == "Rectangle":
-                for obj in list_objs:
-                    csv_writer.writerows([obj.id, obj.width, obj.height,
-                                         obj.x, obj.y])
-            elif cls.__name__ == "Square":
-                for obj in list_objs:
-                    csv_writer.writerows([obj.id, obj.size, obj.x, obj.y])
