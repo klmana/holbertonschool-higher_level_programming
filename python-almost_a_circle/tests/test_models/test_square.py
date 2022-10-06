@@ -4,20 +4,21 @@
 
 import unittest
 import os
+import json
 from unittest import mock
 import io
 from models.square import Square
 
 
 class TestSquare(unittest.TestCase):
-    '''
+    """
     Testing Square
-    '''
+    """
 
     def test_instance(self):
-        '''
+        """
         test input size correct standard
-        '''
+        """
 
         s = Square(6)
         self.assertEqual(s.width, 6)
@@ -75,16 +76,16 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s3.id, 4)
 
     def test_str_for_square(self):
-        '''
+        """
           Test __str__
-        '''
+        """
         s3 = Square(1, 2, 3, 4)
         self.assertEqual(str(s3), "[Square] (4) 2/3 - 1")
 
     def test_to_dictionary(self):
-        '''
+        """
             Test method to_dictionary
-        '''
+        """
         s1 = Square(1, 2, 3)
         s1_dictionary = s1.to_dictionary()
         s_dictionary = {'x': 2, 'y': 3, 'id': 3, 'size': 1}
@@ -98,9 +99,9 @@ class TestSquare(unittest.TestCase):
         self.assertFalse(s1 == s4)
 
     def test_created(self):
-        '''
+        """
           Test of Square.create(**{ 'id': 89 }) in Square exists
-        '''
+        """
         s1 = Square.create(**{'id': 89})
         self.assertEqual(s1.id, 89)
 
@@ -120,9 +121,9 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.y, 3)
 
     def test_save_to_file(self):
-        '''
+        """
           Test normal load from file
-        '''
+        """
         s1 = Square(7, 3)
         s2 = Square(8)
         squares_input = [s1, s2]
@@ -132,13 +133,25 @@ class TestSquare(unittest.TestCase):
             self.assertEqual(str(x[0]), str(x[1]))
 
     def test_load_from_file(self):
-        '''
+        """
           Test normal load from file
-        '''
+        """
         if os.path.exists("Square.json"):
             os.remove("Square.json")
         squares_output = Square.load_from_file()
         self.assertEqual(squares_output, [])
+
+    def test_save_to_file_none(self):
+        """
+          Test that `save_to_file() works
+        """
+        s1 = Square(7, 8, 1)
+        s2 = Square(2)
+        Square.save_to_file(None)
+        self.assertIs(os.path.exists("Square.json"), True)
+        with open("Square.json", 'r') as file:
+            self.assertEqual(json.loads(file.read()), json.loads('[]'))
+        os.remove("Square.json")
 
 
 if __name__ == "__main__":
