@@ -32,6 +32,9 @@ class TestSquare(unittest.TestCase):
             Square("1")
 
         with self.assertRaises(ValueError):
+            Square(2, -1, 0, 50)
+
+        with self.assertRaises(ValueError):
             Square(-5, 3, 4)
 
         with self.assertRaises(TypeError):
