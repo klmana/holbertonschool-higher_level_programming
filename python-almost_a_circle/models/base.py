@@ -99,3 +99,39 @@ class Base:
             return [cls.create(**for_item) for for_item in for_list]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+          Save to a csv file
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w") as f:
+            if cls.__name__ == "Rectangle":
+                fieldnames = ["id", "width", "height", "x", "y"]
+            elif cls.__name__ == "Square":
+                fieldnames = ["id", "size", "x", "y"]
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            for obj in list_objs:
+                writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''
+          Deserializes CSV format from a file.
+        '''
+        filename = cls.__name__ + ".csv"
+        for_list = []
+        with open(filename) as f:
+            if cls.__name__ == "Rectangle":
+                fieldnames = ["id", "width", "height", "x", "y"]
+            elif cls.__name__ == "Square":
+                fieldnames = ["id", "size", "x", "y"]
+            reader = csv.DictReader(f, fieldnames=fieldnames)
+            for_list_d = {}
+            for_list_d2 = []
+            for d in reader:
+                for k, v in dict(d).items():
+                    for_list_d[k] = int(v)
+                for_list_d2.append(cls.create(**for_list_d))
+            return for_list_d2
