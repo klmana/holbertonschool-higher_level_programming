@@ -9,6 +9,7 @@ import inspect
 import os
 import json
 import io
+import contextlib
 from contextlib import redirect_stdout
 from models.base import Base
 from models.rectangle import Rectangle
@@ -73,6 +74,10 @@ class TestRectangle(unittest.TestCase):
         cls.r2 = Rectangle(5, 4)
         cls.r3 = Rectangle(4, 12, 0, 0, 24)
         cls.r4 = Rectangle(6, 8)
+        cls.r5 = Rectangle(2, 3, 4)
+        cls.r6 = Rectangle(5, 6, 7, 8, 9)
+        cls.r7 = Rectangle(11, 12, 13, 14)
+        cls.r8 = Rectangle(4, 5)
 
     def test_obj_class(self):
         """
@@ -300,6 +305,17 @@ class TestRectangle(unittest.TestCase):
         result = Rectangle.load_from_file()
         self.assertEqual(str(result[0]), str(self.r3))
 
+    def test_standard_display(self):
+        """
+          Test for the standard display
+        """
+        f = io.StringIO()
+        with contextlib.redirect_stdout(f):
+            self.r8.display()
+            output = f.getvalue()
+            result = "####\n####\n####\n####\n####\n"
+            self.assertEqual(output, result)
+
     def test_basic_display(self):
         """
           Test display without x and y
@@ -313,6 +329,27 @@ class TestRectangle(unittest.TestCase):
             r.display()
             output = buf.getvalue()
             self.assertEqual(output, ("#" * 2 + "\n") * 3)
+
+    def test_display_xy(self):
+        """
+          Testing the display method with x and y
+        """
+        with io.StringIO() as buf, redirect_stdout(buf):
+            self.r5.display()
+            output = buf.getvalue()
+            self.assertEqual(output, (" " * 4 + "#" * 2 + "\n") * 3)
+
+        with io.StringIO() as buf, redirect_stdout(buf):
+            self.r6.display()
+            output = buf.getvalue()
+            self.assertEqual(output, "\n" * 8 +
+                             (" " * 7 + "#" * 5 + "\n") * 6)
+
+        with io.StringIO() as buf, redirect_stdout(buf):
+            self.r7.display()
+            output = buf.getvalue()
+            self.assertEqual(output, "\n" * 14 +
+                             (" " * 13 + "#" * 11 + "\n") * 12)
 
     def test_display_too_many_args(self):
         """Test display with too many args"""
