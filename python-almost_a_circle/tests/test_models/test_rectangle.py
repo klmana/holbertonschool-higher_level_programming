@@ -8,6 +8,8 @@ import unittest
 import inspect
 import os
 import json
+import io
+from contextlib import redirect_stdout
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -297,6 +299,25 @@ class TestRectangle(unittest.TestCase):
         Rectangle.save_to_file([self.r3])
         result = Rectangle.load_from_file()
         self.assertEqual(str(result[0]), str(self.r3))
+
+    def test_basic_display(self):
+        """
+          Test display without x and y
+        """
+        r = Rectangle(2, 3, 0, 0, 1)
+        with io.StringIO() as buf, redirect_stdout(buf):
+            self.r1.display()
+            output = buf.getvalue()
+            self.assertEqual(output, ("#" * 10 + "\n") * 4)
+        with io.StringIO() as buf, redirect_stdout(buf):
+            r.display()
+            output = buf.getvalue()
+            self.assertEqual(output, ("#" * 2 + "\n") * 3)
+
+    def test_display_too_many_args(self):
+        """Test display with too many args"""
+        with self.assertRaises(TypeError):
+            self.r1.display(1)
 
 
 if __name__ == "__main__":
