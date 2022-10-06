@@ -61,6 +61,18 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.x, 2)
         self.assertEqual(s1.y, 3)
 
+        s2 = Square(1, 2)
+        self.assertEqual(s2.width, 1)
+        self.assertEqual(s2.height, 1)
+        self.assertEqual(s2.x, 2)
+
+        s3 = Square(1, 2, 3, 4)
+        self.assertEqual(s3.width, 1)
+        self.assertEqual(s3.height, 1)
+        self.assertEqual(s3.x, 2)
+        self.assertEqual(s3.y, 3)
+        self.assertEqual(s3.id, 4)
+
 
 if __name__ == "__main__":
     unittest.main()
