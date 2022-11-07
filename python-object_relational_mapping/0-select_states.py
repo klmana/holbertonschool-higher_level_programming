@@ -8,7 +8,7 @@ if __name__ == "__main__":
     from sys import argv
     # make a connection and 3 arguments take in
     db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
-    cur = db.cursor()# create a cursor
+    cur = db.cursor()   # create a cursor
     # execute query
     cur.execute("SELECT * FROM states")
     rows = cur.fetchall()
