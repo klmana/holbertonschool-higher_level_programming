@@ -13,7 +13,7 @@ if __name__ == "__main__":
     cur = db.cursor()   # create a cursor
 
     # execute query
-    cur.execute("SELECT * FROM states WHERE name='{}'\
+    cur.execute("SELECT * FROM states WHERE name = '{}'\
     ORDER BY id ASC".format(argv[4]))
 
     # fetch and print
