@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#Adds the State object Louisiana to the db
+# Adds the State object Louisiana to the db
 
 from model_state import Base, State
 from sqlalchemy import create_engine
