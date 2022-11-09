@@ -20,8 +20,8 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 
 session = Session()
-state_ob_change = session.query(State).filter(State.id == 2).first()
-state_ob_change.name = 'New Mexico'
+state = session.query(State).filter(State.id == 2).first()
+state..name = 'New Mexico'
 
 session.commit()
 session.close()
