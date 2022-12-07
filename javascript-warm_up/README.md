@@ -40,7 +40,7 @@ This Javascript project in the High Level Programming series is about:
 
 ## Tasks
 ---
-File|Task
+Files|Tasks
 ---|---
 0-javascript_is_amazing.js | prints “Javascript is amazing”
 1-multi_languages.js | script that prints 3 lines
