@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 const args = process.argv.slice(2); // get all arguments, excluding the node and script name
 
 if (args.length === 0) {
