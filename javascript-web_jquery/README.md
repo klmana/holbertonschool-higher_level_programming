@@ -22,7 +22,6 @@ JQuery Ajax | https://intranet.hbtn.io/rltoken/fP1IZt7vTQn9Wd59hIGu3w
 ---
 ## Description
 
-This project in the High Level Programming series is about:
 * How to select HTML elements in Javascript
 * How to select HTML elements with jQuery
 * What are differences between ID, class and tag name selectors
